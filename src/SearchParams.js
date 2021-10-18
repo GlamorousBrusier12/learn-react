@@ -1,7 +1,7 @@
 import { useState } from "react";
 const BOWLERS = ['Harshal Patel', 'Avesh Khan', 'Jasprit Bumrah', 'Mohmmad Siraj'];
 const SearchParams = ()=>{
-    const [location, setLocation] = useState("Madhavadhara, Vizag");
+    const [location, setLocation] = useState();
     const [bowler, setBowler] = useState("");
     const [breed, setBreeds] = useState("");
     const BREEDS = [];
