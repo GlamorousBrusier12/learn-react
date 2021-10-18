@@ -1,10 +1,13 @@
-import React from 'react';
+import React from "react";
+
 const Player = (props) => {
-  return React.createElement("div", {}, [
-    React.createElement("h2", {}, props.name),
-    React.createElement("h2", {}, props.role),
-    React.createElement("h2", {}, props.Team),
-  ]);
+  return (
+    <div>
+      <h1>{props.name}</h1>
+      <h1>{props.rol}</h1>
+      <h1>{props.Team}</h1>
+    </div>
+  );
 };
 
 export default Player;
