@@ -1,15 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext} from "react";
 import useBreedList from "./useBreedList";
-
+import ThemeContext from "./ThemeContext";
 import Result from './Result';
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
 const SearchParams = () => {
   const [animal, updateAnimal] = useState("");
-  const [location, updateLocation] = useState("Seattle, WA");
+  const [location, updateLocation] = useState("");
   const [breed, updateBreed] = useState("");
   const [pets,setPets] = useState([]);
   const [breeds] = useBreedList(animal);
+  const [theme, setTheme] = useContext(ThemeContext);
   async function getBreeds() {
       const res = await fetch(`http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`);
       const json = await res.json();
@@ -65,7 +66,20 @@ const SearchParams = () => {
             ))}
           </select>
         </label>
-        <button>Submit</button>
+        <label htmlFor= 'theme'>
+          Theme
+          <select
+           value={theme}
+           onChange={(e)=>setTheme(e.target.value)}
+           onBlur={(e)=>setTheme(e.target.value)}
+           >
+             <option key ='green' value='green'>Green</option>
+             <option key ='darkblue' value='darkblue'>Blue</option>
+             <option key ='peru' value='peru'>Peru</option>
+             <option key ='cyan' value='cyan'>Cyan</option>
+          </select>
+        </label>
+        <button style={{backgroundColor:theme}}>Submit</button>
       </form>
       <Result pets={pets} />
     </div>

@@ -8,7 +8,8 @@ const Pet = ({
   images,
   breed
 }) => {
-    let hero = fetch(`htpps://pets-images.dev-apis.com/pets/home.jpg`);
+    // let hero = fetch("http://pets-images.dev-apis.com/pets/none.jpg");
+    let hero;
     if(images.length){
       hero = images[0];
     }
