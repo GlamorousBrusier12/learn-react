@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
-import SearchParams from "./searchparams2";
+import SearchParams from "./Searchparams";
 import { StrictMode, useState } from "react";
 import { BrowserRouter as Router, Link, Route , Switch } from "react-router-dom";
 import Details from "./Details";
